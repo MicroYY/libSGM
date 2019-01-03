@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{528e1045-0436-497d-b5c0-fbee33e6e7d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{5057ec98-291d-400c-ae2d-726ed300c3dd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\census_transform.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\device_buffer.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\horizontal_path_aggregation.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\internal.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\oblique_path_aggregation.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\path_aggregation.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\path_aggregation_common.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\sgm.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utility.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vertical_path_aggregation.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\winner_takes_all.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="..\src\census_transform.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\check_consistency.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\cuda_utils.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\horizontal_path_aggregation.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\median_filter.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\oblique_path_aggregation.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\path_aggregation.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\sgm.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\vertical_path_aggregation.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\src\winner_takes_all.cu">
+      <Filter>Sources</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\stereo_sgm.cpp" />
+  </ItemGroup>
+</Project>

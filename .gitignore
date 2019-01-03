@@ -1,2 +1,8 @@
 include/libsgm_config.h
 build/
+/.vs/libSGM/v15
+/libSGM/x64
+*.pdb
+*.user
+/sample/image/x64
+/x64

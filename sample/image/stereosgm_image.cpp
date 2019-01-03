@@ -16,6 +16,7 @@ limitations under the License.
 
 #include <stdlib.h>
 #include <iostream>
+#include <time.h>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -38,9 +39,11 @@ int main(int argc, char* argv[]) {
 		std::cerr << "usage: stereosgm left_img right_img [disp_size]" << std::endl;
 		std::exit(EXIT_FAILURE);
 	}
+	clock_t start, end;
+	start = clock();
+	cv::Mat left = cv::imread(argv[1], 2);
+	cv::Mat right = cv::imread(argv[2], 2);
 
-	cv::Mat left = cv::imread(argv[1], -1);
-	cv::Mat right = cv::imread(argv[2], -1);
 
 	int disp_size = 64;
 	if (argc >= 4) {
@@ -66,9 +69,11 @@ int main(int argc, char* argv[]) {
 	cv::Mat output(cv::Size(left.cols, left.rows), CV_8UC1);
 
 	ssgm.execute(left.data, right.data, output.data);
+	end = clock();
+	std::cout << (float(end - start) / (float)CLOCKS_PER_SEC)*1000.0 << "ms" << std::endl;
 	// show image
 	cv::imshow("image", output * 256 / disp_size);
-	
+
 	int key = cv::waitKey();
 	int mode = 0;
 	while (key != 27) {
@@ -78,31 +83,31 @@ int main(int argc, char* argv[]) {
 
 			switch (mode) {
 			case 0:
-				{
-					#if CV_MAJOR_VERSION == 3
-					cv::setWindowTitle("image", "disparity");
-					#endif
-					cv::imshow("image", output * 256 / disp_size);
-					break;
-				}
+			{
+#if CV_MAJOR_VERSION == 3
+				cv::setWindowTitle("image", "disparity");
+#endif
+				cv::imshow("image", output * 256 / disp_size);
+				break;
+			}
 			case 1:
-				{
-					cv::Mat m;
-					cv::applyColorMap(output * 256 / disp_size, m, cv::COLORMAP_JET);
-					#if CV_MAJOR_VERSION == 3
-					cv::setWindowTitle("image", "disparity color");
-					#endif
-					cv::imshow("image", m);
-					break;
-				}
+			{
+				cv::Mat m;
+				cv::applyColorMap(output * 256 / disp_size, m, cv::COLORMAP_JET);
+#if CV_MAJOR_VERSION == 3
+				cv::setWindowTitle("image", "disparity color");
+#endif
+				cv::imshow("image", m);
+				break;
+			}
 			case 2:
-				{
-					#if CV_MAJOR_VERSION == 3
-					cv::setWindowTitle("image", "input");
-					#endif
-					cv::imshow("image", left);
-					break;
-				}
+			{
+#if CV_MAJOR_VERSION == 3
+				cv::setWindowTitle("image", "input");
+#endif
+				cv::imshow("image", left);
+				break;
+			}
 			}
 		}
 		key = cv::waitKey();
