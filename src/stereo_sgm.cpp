@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 #include <iostream>
-
+#include <time.h>
 #include <libsgm.h>
 
 #include "internal.h"
@@ -153,6 +153,7 @@ namespace sgm {
 		else {
 			CudaSafeCall(cudaMemcpy(cu_res_->d_src_left, left_pixels, input_depth_bits_ / 8 * src_pitch_ * height_, cudaMemcpyHostToDevice));
 			CudaSafeCall(cudaMemcpy(cu_res_->d_src_right, right_pixels, input_depth_bits_ / 8 * src_pitch_ * height_, cudaMemcpyHostToDevice));
+
 			d_input_left = cu_res_->d_src_left;
 			d_input_right = cu_res_->d_src_right;
 		}
