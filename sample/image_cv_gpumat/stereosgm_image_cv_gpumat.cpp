@@ -53,8 +53,8 @@ static void execute(sgm::LibSGMWrapper& sgmw, const cv::Mat& h_left, const cv::M
 int main(int argc, char* argv[]) {
 	ASSERT_MSG(argc >= 3, "usage: stereosgm left_img right_img [disp_size]");
 
-	const cv::Mat left = cv::imread(argv[1], -1);
-	const cv::Mat right = cv::imread(argv[2], -1);
+	const cv::Mat left = cv::imread(argv[1], 2);
+	const cv::Mat right = cv::imread(argv[2], 2);
 	const int disp_size = argc > 3 ? std::atoi(argv[3]) : 128;
 
 	ASSERT_MSG(left.size() == right.size() && left.type() == right.type(), "input images must be same size and type.");
