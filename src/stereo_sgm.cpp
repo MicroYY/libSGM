@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 #include <iostream>
-#include <time.h>
+
 #include <libsgm.h>
 
 #include "internal.h"

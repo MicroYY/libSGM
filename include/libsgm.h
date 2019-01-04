@@ -25,8 +25,13 @@ limitations under the License.
 * @file libsgm.h
 * stereo-sgm main header
 */
-
+#ifdef WIN32
 #include "libsgm_config.h.in"
+#else
+#include "libsgm_config.h"
+#endif // WIN32
+
+
 
 #if defined(LIBSGM_SHARED)
 	#if defined(WIN32) || defined(_WIN32)

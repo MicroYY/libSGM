@@ -1,13 +1,20 @@
 #ifndef __LIBSGM_CONFIG_H__
 #define __LIBSGM_CONFIG_H__
 
-//#cmakedefine LIBSGM_SHARED
+#ifdef WIN32
+#else
+#cmakedefine LIBSGM_SHARED
+#endif
 
 #define LIBSGM_VERSION @libSGM_VERSION@
 #define LIBSGM_VERSION_MAJOR @libSGM_VERSION_MAJOR@
 #define LIBSGM_VERSION_MINOR @libSGM_VERSION_MINOR@
 #define LIBSGM_VERSION_PATCH @libSGM_VERSION_PATCH@
 
-//#cmakedefine BUILD_OPENCV_WRAPPER
+#ifdef WIN32
+#else
+#cmakedefine BUILD_OPENCV_WRAPPER
+#endif
+
 
 #endif // __LIBSGM_CONFIG_H__
