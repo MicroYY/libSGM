@@ -6,3 +6,5 @@ build/
 *.user
 /sample/image/x64
 /x64
+/build
+/sample/KITTI/x64
