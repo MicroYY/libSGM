@@ -43,8 +43,8 @@ int main(int argc, char** argv)
 
 		l.str("");
 		r.str("");
-		l << argv[1] << "/" << "image_2" << "/" << std::setw(6) << std::setfill('0') << i << "_11.png";
-		r << argv[1] << "/" << "image_3" << "/" << std::setw(6) << std::setfill('0') << i << "_11.png";
+		l << argv[1] << "/" << "image_2" << "/" << std::setw(6) << std::setfill('0') << 0 << "_11.png";
+		r << argv[1] << "/" << "image_3" << "/" << std::setw(6) << std::setfill('0') << 0 << "_11.png";
 
 
 		
