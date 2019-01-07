@@ -19,14 +19,21 @@ int main(int argc, char** argv)
 	int bits = 8;
 
 	std::stringstream l, r;
-	clock_t start, end;	
+	clock_t start, end;
 	start = clock();
 	for (size_t i = 0; i < 200; i++)
 	{
 		l.str("");
 		r.str("");
+#ifdef WIN32
 		l << argv[1] << "\\" << "image_2" << "\\" << std::setw(6) << std::setfill('0') << 0 << "_10.png";
 		r << argv[1] << "\\" << "image_3" << "\\" << std::setw(6) << std::setfill('0') << 0 << "_10.png";
+#else
+		l << argv[1] << "/" << "image_2" << "/" << std::setw(6) << std::setfill('0') << 0 << "_10.png";
+		r << argv[1] << "/" << "image_3" << "/" << std::setw(6) << std::setfill('0') << 0 << "_10.png";
+#endif // WIN32
+
+
 
 		cv::Mat left = cv::imread(l.str(), 2);
 		cv::Mat right = cv::imread(r.str(), 2);
@@ -37,12 +44,18 @@ int main(int argc, char** argv)
 
 		ssgm.execute(left.data, right.data, output.data);
 		cudaDeviceSynchronize();
-		
+
 		l.str("");
 		r.str("");
+#ifdef WIN32
 		l << argv[1] << "\\" << "image_2" << "\\" << std::setw(6) << std::setfill('0') << i << "_11.png";
 		r << argv[1] << "\\" << "image_3" << "\\" << std::setw(6) << std::setfill('0') << i << "_11.png";
+#else
+		l << argv[1] << "/" << "image_2" << "/" << std::setw(6) << std::setfill('0') << i << "_11.png";
+		r << argv[1] << "/" << "image_3" << "/" << std::setw(6) << std::setfill('0') << i << "_11.png";
+#endif // WIN32
 
+		
 		left = cv::imread(l.str(), 2);
 		right = cv::imread(r.str(), 2);
 
