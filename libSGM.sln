@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libSGM", "libSGM\libSGM.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "image", "sample\image\image.vcxproj", "{5DE57D67-CC51-4646-9369-68C9041F81BE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KITTI", "sample\KITTI\KITTI.vcxproj", "{4A7B5683-CE3D-40A2-A7A6-4E346991A4FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,10 @@ Global
 		{5DE57D67-CC51-4646-9369-68C9041F81BE}.Debug|x64.Build.0 = Debug|x64
 		{5DE57D67-CC51-4646-9369-68C9041F81BE}.Release|x64.ActiveCfg = Release|x64
 		{5DE57D67-CC51-4646-9369-68C9041F81BE}.Release|x64.Build.0 = Release|x64
+		{4A7B5683-CE3D-40A2-A7A6-4E346991A4FF}.Debug|x64.ActiveCfg = Debug|x64
+		{4A7B5683-CE3D-40A2-A7A6-4E346991A4FF}.Debug|x64.Build.0 = Debug|x64
+		{4A7B5683-CE3D-40A2-A7A6-4E346991A4FF}.Release|x64.ActiveCfg = Release|x64
+		{4A7B5683-CE3D-40A2-A7A6-4E346991A4FF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
