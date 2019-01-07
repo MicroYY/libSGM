@@ -7,4 +7,7 @@ build/
 /sample/image/x64
 /x64
 /build
+<<<<<<< HEAD
 /sample/KITTI/x64
+=======
+>>>>>>> c63d73ef97645b42510d780e7d47156a52c29cee
