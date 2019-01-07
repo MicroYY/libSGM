@@ -21,21 +21,24 @@ int main(int argc, char** argv)
 	std::stringstream l, r;
 	clock_t start, end;
 	start = clock();
+	sgm::StereoSGM ssgm(1242, 375, disp_size, bits, 8, sgm::EXECUTE_INOUT_HOST2CUDA);
+	uchar* output;
+	cudaMalloc(&output, 1242 * 375);
 	for (size_t i = 0; i < 200; i++)
 	{
 		l.str("");
 		r.str("");
-		l << argv[1] << "/" << "image_2" << "/" << std::setw(6) << std::setfill('0') << 0 << "_10.png";
-		r << argv[1] << "/" << "image_3" << "/" << std::setw(6) << std::setfill('0') << 0 << "_10.png";
+		l << argv[1] << "/" << "image_2" << "/" << std::setw(6) << std::setfill('0') << i << "_10.png";
+		r << argv[1] << "/" << "image_3" << "/" << std::setw(6) << std::setfill('0') << i << "_10.png";
 
 		cv::Mat left = cv::imread(l.str(), 2);
 		cv::Mat right = cv::imread(r.str(), 2);
 
-		sgm::StereoSGM ssgm(left.cols, left.rows, disp_size, bits, 8, sgm::EXECUTE_INOUT_HOST2HOST);
-		cv::Mat output(cv::Size(left.cols, left.rows), CV_8UC1);
+		//sgm::StereoSGM ssgm(left.cols, left.rows, disp_size, bits, 8, sgm::EXECUTE_INOUT_HOST2HOST);
+		//cv::Mat output(cv::Size(left.cols, left.rows), CV_8UC1);
 
 
-		ssgm.execute(left.data, right.data, output.data);
+		ssgm.execute(left.data, right.data, output);
 		cudaDeviceSynchronize();
 
 		l.str("");
@@ -50,7 +53,7 @@ int main(int argc, char** argv)
 
 		//sgm::StereoSGM ssgm(left.cols, left.rows, disp_size, bits, 8, sgm::EXECUTE_INOUT_HOST2HOST);
 		//cv::Mat output(cv::Size(left.cols, left.rows), CV_8UC1);
-		ssgm.execute(left.data, right.data, output.data);
+		ssgm.execute(left.data, right.data, output);
 		cudaDeviceSynchronize();
 	}
 	end = clock();
