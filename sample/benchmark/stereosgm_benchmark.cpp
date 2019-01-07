@@ -46,8 +46,8 @@ int main(int argc, char* argv[])
 		std::exit(EXIT_FAILURE);
 	}
 
-	cv::Mat I1 = cv::imread(argv[1], -1);
-	cv::Mat I2 = cv::imread(argv[2], -1);
+	cv::Mat I1 = cv::imread(argv[1], 2);
+	cv::Mat I2 = cv::imread(argv[2], 2);
 
 	ASSERT_MSG(!I1.empty() && !I2.empty(), "imread failed.");
 	ASSERT_MSG(I1.size() == I2.size() && I1.type() == I2.type(), "input images must be same size and type.");
